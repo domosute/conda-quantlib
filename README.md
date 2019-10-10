@@ -14,7 +14,7 @@ Docker version 19.03.2, build 6a30dfc
 docker-compose version 1.24.1, build 4667896b
 ```
 
-## How to Run the image
+## How to Run the Image
 1. clone this repository.
 ```
 [root@srv opt]# git clone https://github.com/domosute/conda-quantlib.git
