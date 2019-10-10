@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  quantlib:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ql
+    container_name: ql
+    environment:
+      TZ: "America/Chicago"
+    ports:
+      - "9999:9999"
+      - "9000:9000"
+    volumes:
+      - ./notebook:/home/jupyter/notebook
+      - /etc/localtime:/etc/localtime:ro
