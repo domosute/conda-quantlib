@@ -11,7 +11,6 @@ services:
       TZ: "America/Chicago"
     ports:
       - "9999:9999"
-      - "9000:9000"
     volumes:
       - ./notebook:/home/jupyter/notebook
       - /etc/localtime:/etc/localtime:ro
