@@ -6,16 +6,18 @@ RUN apt-get update && \
 # Install apt Packages:
 # Note: nodejs and npm is used for installing Jupyterlab spellchecker.
 apt-get install -y sudo apt-utils nodejs npm && \
+# Install pandoc related packages
+apt-get install -y pandoc poppler-utils && \
 /opt/conda/bin/conda update -y --prefix /opt/conda conda && \
-# Install Jupyter related Packages
+# Install Jupyter related packages
 /opt/conda/bin/conda install -y jupyter numpy pandas matplotlib bokeh ipyparallel && \
 # Install PostgreSQL driver
 /opt/conda/bin/conda install -y psycopg2 && \
-# Installing samba related package
+# Installing samba related packages
 /opt/conda/bin/conda install -y -c conda-forge pysmbclient && \
-# Installing numba related package
+# Installing numba related packages
 /opt/conda/bin/conda install -y -c numba numba && \
-# Install QuantLib related Packages
+# Install QuantLib related packages
 /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
 
 # Setup for Jupyter Notebook
