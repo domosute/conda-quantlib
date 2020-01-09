@@ -6,6 +6,8 @@ RUN apt-get update && \
 # Install apt Packages:
 # Note: nodejs and npm is used for installing Jupyterlab spellchecker.
 apt-get install -y sudo apt-utils nodejs npm && \
+# Install Tex related package
+apt-get install -y texlive-xetex texlive-fonts-recommended texlive-generic-recommended && \
 # Install pandoc related packages
 apt-get install -y pandoc poppler-utils && \
 /opt/conda/bin/conda update -y --prefix /opt/conda conda && \
