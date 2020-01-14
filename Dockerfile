@@ -40,7 +40,6 @@ echo "c.NotebookApp.token = 'jupyter'" > /home/jupyter/jupyter_notebook_config.p
 # Conda clean up
 /opt/conda/bin/conda clean -y --all
 
-
 # Add shell script to start postfix and jupyter
 COPY entrypoint.sh /usr/local/bin
 
