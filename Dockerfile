@@ -20,7 +20,7 @@ apt-get install -y pandoc poppler-utils && \
 # Installing numba related packages
 /opt/conda/bin/conda install -y -c numba numba && \
 # Installing boost
-/opt/conda/bin/conda install -y boost && \
+/opt/conda/bin/conda install -y -c conda-forge boost && \
 # Install QuantLib related packages
 /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
 
