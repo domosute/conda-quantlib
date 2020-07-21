@@ -7,11 +7,11 @@ Jupyter Lab notebook with Quantlib Docker image for x86_64 platform
 ## Confirmed Environment
 ```
 [root@srv ~]# rpm -q centos-release
-centos-release-7-7.1908.0.el7.centos.x86_64
+centos-release-7-8.2003.0.el7.centos.x86_64
 [root@srv ~]# docker -v
-Docker version 19.03.2, build 6a30dfc
+Docker version 19.03.12, build 48a66213fe
 [root@srv ~]# docker-compose -v
-docker-compose version 1.24.1, build 4667896b
+docker-compose version 1.26.2, build eefe0d31
 ```
 
 ## How to Run the Image
