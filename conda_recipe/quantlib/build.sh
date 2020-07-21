@@ -1,6 +1,7 @@
 #!/bin/bash
 
 MULTI_THREAD=4
+
 export PREFIX=/opt/conda
 export CFLAGS="${CFLAGS} -I${PREFIX}/include"
 export CXXFLAGS="${CFLAGS}"
