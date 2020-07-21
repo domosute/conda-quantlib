@@ -65,7 +65,11 @@ jupyter@xxxxxxxxxxxx:/opt$ exit
 [root@srv conda-quantlib]# docker-compose down
 ```
 
-12. Modify Dockerfile.
+12. Modify Dockerfile. (modify domosute with relevant Anaconda Cloud handle name)
+```
+# Install QuantLib related packages
+/opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
+```
 
 13. Rebuild
 ```
