@@ -1,0 +1,19 @@
+package:
+  name: quantlib-python
+  version: 1.19
+  
+source:
+  url: https://github.com/lballabio/QuantLib-SWIG/archive/QuantLib-SWIG-v1.19.tar.gz
+
+requirements:
+  build:
+    - swig >=4.0.2
+    - python >=3.7
+    - numpy >=1.19.0
+  run:
+    - python
+
+about:
+  home: http://www.quantlib.org/
+  license: https://github.com/lballabio/QuantLib-SWIG/blob/master/LICENSE.TXT
+  summary: "QuantLib-Python: Python binding for QuantLib"
