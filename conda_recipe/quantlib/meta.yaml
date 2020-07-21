@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export PREFIX=/opt/conda
 export CFLAGS="${CFLAGS} -I${PREFIX}/include"
 export CXXFLAGS="${CFLAGS}"
 export CPPFLAGS="-I${PREFIX}/include"
@@ -17,4 +18,3 @@ python setup.py wrap
 python setup.py build
 python setup.py test
 python setup.py install
-© 2020 GitHub, Inc.
