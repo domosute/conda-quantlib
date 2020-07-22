@@ -26,7 +26,7 @@ RUN /opt/conda/bin/conda install -y jupyter numpy pandas matplotlib bokeh ipypar
 # Installing numba related packages
 /opt/conda/bin/conda install -y -c numba numba && \
 # Installing boost
-/opt/conda/bin/conda install -y -c conda-forge boost && \
+/opt/conda/bin/conda install -y -c conda-forge boost libboost && \
 # Install QuantLib related packages
 /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
 # Setup for Jupyter Notebook
