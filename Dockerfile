@@ -9,10 +9,16 @@ apt-get install -y sudo apt-utils nodejs npm && \
 # Install Tex related package
 apt-get install -y texlive-xetex texlive-fonts-recommended texlive-generic-recommended && \
 # Install pandoc related packages
-apt-get install -y pandoc poppler-utils && \
-/opt/conda/bin/conda update -y --prefix /opt/conda conda && \
+apt-get install -y pandoc poppler-utils
+# Prep for Conda installation
+# (4/4/2020: Solving environment: failed with initial frozen solve. Retrying with flexible solve. https://github.com/conda/conda/issues/9367)
+RUN /opt/conda/bin/conda config --add channels conda-forge && \
+/opt/conda/bin/conda config --set channel_priority false
+# Update Conda and Package List
+RUN /opt/conda/bin/conda update -y --prefix /opt/conda conda && \
+/opt/conda/bin/conda update --all
 # Install Jupyter related packages
-/opt/conda/bin/conda install -y jupyter numpy pandas matplotlib bokeh ipyparallel && \
+RUN /opt/conda/bin/conda install -y jupyter numpy pandas matplotlib bokeh ipyparallel && \
 # Install PostgreSQL driver
 /opt/conda/bin/conda install -y psycopg2 && \
 # Installing samba related packages
@@ -23,7 +29,6 @@ apt-get install -y pandoc poppler-utils && \
 /opt/conda/bin/conda install -y -c conda-forge boost && \
 # Install QuantLib related packages
 /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
-
 # Setup for Jupyter Notebook
 RUN echo "export PATH=/opt/conda/bin:$PATH" > /etc/profile.d/conda.sh && \
 cp /etc/profile.d/conda.sh /root/.bashrc && \
