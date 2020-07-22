@@ -28,7 +28,7 @@ RUN /opt/conda/bin/conda install -y jupyter numpy pandas matplotlib bokeh ipypar
 # Installing boost
 /opt/conda/bin/conda install -y -c conda-forge boost libboost && \
 # Install QuantLib related packages
-/opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
+# /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
 # Setup for Jupyter Notebook
 RUN echo "export PATH=/opt/conda/bin:$PATH" > /etc/profile.d/conda.sh && \
 cp /etc/profile.d/conda.sh /root/.bashrc && \
