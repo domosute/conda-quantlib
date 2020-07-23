@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MULTI_THREAD=4
+MULTI_THREAD=6
 
 export CFLAGS="${CFLAGS} -I${PREFIX}/include"
 export CXXFLAGS="${CFLAGS}"

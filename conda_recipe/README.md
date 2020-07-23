@@ -18,11 +18,16 @@ root@xxxxxxxxxxxx:/opt#
 root@xxxxxxxxxxxx:/opt# git clone https://github.com/domosute/conda-quantlib.git
 ```
 
-4. Build Quantlib package first. (Change meta.yaml file accordingly.)
+4. Build setup
 ```
-root@xxxxxxxxxxxx:/opt# cd quantlib
-root@xxxxxxxxxxxx:/opt# export PREFIX=/opt/conda
-root@xxxxxxxxxxxx:/opt# export LD_LIBRARY_PATH=/opt/conda/lib
+root@xxxxxxxxxxxx:/opt/# conda install -y -c conda-forge gcc_linux-64 gxx_linux-64 automake autoconf
+root@xxxxxxxxxxxx:/opt/# export PREFIX=/opt/conda
+root@xxxxxxxxxxxx:/opt/# export LD_LIBRARY_PATH=/opt/conda/lib
+
+
+4. Build Quantlib package first. (Change meta.yaml file accordingly.)
+``
+root@xxxxxxxxxxxx:/opt# cd /opt/conda-quantlib/conda_recipe/quantlib
 root@xxxxxxxxxxxx:/quantlib# conda build .
 ```
 
@@ -38,13 +43,13 @@ root@xxxxxxxxxxxx:/opt# conda install -c <Anaconda Cloud handle name> quantlib
 
 7. Update system link and cache
 ```
-root@xxxxxxxxxxxx:/opt# ldconfig
+root@xxxxxxxxxxxx:/opt/# echo "/opt/conda/lib" > /etc/ld.so.conf.d/conda.conf
+root@xxxxxxxxxxxx:/opt/# ldconfig
 ```
 
 8. Build Quantlib-SWIG
 ```
-root@xxxxxxxxxxxx:/opt# cd ../quantlib-python
-root@xxxxxxxxxxxx:/opt# apt-get install dh-autoreconf
+root@xxxxxxxxxxxx:/opt# cd /opt/conda-quantlib/conda_recipe/quantlib-python
 root@xxxxxxxxxxxx:/opt# conda build .
 ```
 
@@ -71,7 +76,7 @@ jupyter@xxxxxxxxxxxx:/opt$ exit
 /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
 ```
 
-13. Rebuild
+13. Rebuild the Docker image
 ```
 [root@srv conda-quantlib]# docker-compose build
 ```

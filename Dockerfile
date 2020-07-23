@@ -15,20 +15,22 @@ apt-get install -y pandoc poppler-utils
 RUN /opt/conda/bin/conda config --add channels conda-forge && \
 /opt/conda/bin/conda config --set channel_priority false
 # Update Conda and Package List
-RUN /opt/conda/bin/conda update -y --prefix /opt/conda conda && \
+RUN /opt/conda/bin/conda update -y --prefix /opt/conda anaconda && \
 /opt/conda/bin/conda update --all
 # Install Jupyter related packages
-RUN /opt/conda/bin/conda install -y jupyter numpy pandas matplotlib bokeh ipyparallel && \
+RUN /opt/conda/bin/conda install -y -c conda-forge jupyter numpy pandas matplotlib bokeh 
 # Install PostgreSQL driver
-/opt/conda/bin/conda install -y psycopg2 && \
+RUN /opt/conda/bin/conda install -y -c conda-forge psycopg2 && \
 # Installing samba related packages
-/opt/conda/bin/conda install -y -c conda-forge pysmbclient && \
+/opt/conda/bin/conda install -y -c conda-forge pysmbclient
 # Installing numba related packages
-/opt/conda/bin/conda install -y -c numba numba && \
-# Installing boost
-/opt/conda/bin/conda install -y -c conda-forge boost libboost && \
+RUN /opt/conda/bin/conda install -y -c conda-forge numba
+# Installing boost related and SWIG
+RUN /opt/conda/bin/conda install -y -c conda-forge boost libboost swig
 # Install QuantLib related packages
-# /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
+RUN /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
+# Install Compilers and set env variables for Quantlib related package build
+RUN /opt/conda/bin/conda install -y -c conda-forge gcc_linux-64 gxx_linux-64 automake autoconf
 # Setup for Jupyter Notebook
 RUN echo "export PATH=/opt/conda/bin:$PATH" > /etc/profile.d/conda.sh && \
 cp /etc/profile.d/conda.sh /root/.bashrc && \
@@ -41,7 +43,7 @@ chmod 0440 /etc/sudoers.d/jupyter && \
 # Below file enable password access instead of token
 echo "c.NotebookApp.token = 'jupyter'" > /home/jupyter/jupyter_notebook_config.py && \
 # Enable IPython cluster
-/opt/conda/bin/ipcluster nbextension enable && \
+# /opt/conda/bin/ipcluster nbextension enable && \
 # Install Jupyterlab spellchecker
 /opt/conda/bin/jupyter labextension install @ijmbarr/jupyterlab_spellchecker && \
 # Conda clean up
@@ -49,7 +51,7 @@ echo "c.NotebookApp.token = 'jupyter'" > /home/jupyter/jupyter_notebook_config.p
 
 # Add shell script to start postfix and jupyter
 COPY entrypoint.sh /usr/local/bin
-
+RUN chmod +x /usr/local/bin/entrypoint.sh
 EXPOSE 9999 9000 443
 USER jupyter
 WORKDIR /home/jupyter/
