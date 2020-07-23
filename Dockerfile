@@ -24,7 +24,7 @@ RUN /opt/conda/bin/conda install -y jupyter numpy pandas matplotlib bokeh ipypar
 # Installing samba related packages
 /opt/conda/bin/conda install -y -c conda-forge pysmbclient && \
 # Installing numba related packages
-/opt/conda/bin/conda install -y -c numba numba && \
+/opt/conda/bin/conda install -y -c conda-forge numba && \
 # Installing boost
 /opt/conda/bin/conda install -y -c conda-forge boost libboost && \
 # Install QuantLib related packages
