@@ -18,17 +18,17 @@ RUN /opt/conda/bin/conda config --add channels conda-forge && \
 RUN /opt/conda/bin/conda update -y --prefix /opt/conda anaconda && \
 /opt/conda/bin/conda update --all
 # Install Jupyter related packages
-RUN /opt/conda/bin/conda install -y -c conda-forge jupyter numpy pandas matplotlib bokeh && \
+RUN /opt/conda/bin/conda install -y -c conda-forge jupyter numpy pandas matplotlib bokeh
 # Install PostgreSQL driver
-/opt/conda/bin/conda install -y -c conda-forge psycopg2 && \
+RUN /opt/conda/bin/conda install -y -c conda-forge psycopg2 && \
 # Installing samba related packages
-/opt/conda/bin/conda install -y -c conda-forge pysmbclient && \
+/opt/conda/bin/conda install -y -c conda-forge pysmbclient
 # Installing numba related packages
-/opt/conda/bin/conda install -y -c conda-forge numba && \
+RUN /opt/conda/bin/conda install -y -c conda-forge numba
 # Installing boost
-/opt/conda/bin/conda install -y -c conda-forge boost libboost && \
+RUN /opt/conda/bin/conda install -y -c conda-forge boost libboost && \
 # Install QuantLib related packages
-# /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
+/opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
 # Setup for Jupyter Notebook
 RUN echo "export PATH=/opt/conda/bin:$PATH" > /etc/profile.d/conda.sh && \
 cp /etc/profile.d/conda.sh /root/.bashrc && \
