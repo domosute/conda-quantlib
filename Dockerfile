@@ -18,7 +18,7 @@ RUN /opt/conda/bin/conda config --add channels conda-forge && \
 RUN /opt/conda/bin/conda update -y --prefix /opt/conda anaconda && \
 /opt/conda/bin/conda update --all
 # Install Jupyter related packages
-RUN /opt/conda/bin/conda install -y -c conda-forge jupyter numpy pandas matplotlib bokeh ipyparallel && \
+RUN /opt/conda/bin/conda install -y -c conda-forge jupyter numpy pandas matplotlib bokeh && \
 # Install PostgreSQL driver
 /opt/conda/bin/conda install -y -c conda-forge psycopg2 && \
 # Installing samba related packages
@@ -40,8 +40,6 @@ echo "jupyter ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/jupyter && \
 chmod 0440 /etc/sudoers.d/jupyter && \
 # Below file enable password access instead of token
 echo "c.NotebookApp.token = 'jupyter'" > /home/jupyter/jupyter_notebook_config.py && \
-# Enable IPython cluster
-/opt/conda/bin/ipcluster nbextension enable && \
 # Install Jupyterlab spellchecker
 /opt/conda/bin/jupyter labextension install @ijmbarr/jupyterlab_spellchecker && \
 # Conda clean up
