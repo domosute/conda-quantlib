@@ -15,7 +15,7 @@ apt-get install -y pandoc poppler-utils
 RUN /opt/conda/bin/conda config --add channels conda-forge && \
 /opt/conda/bin/conda config --set channel_priority false
 # Update Conda and Package List
-RUN /opt/conda/bin/conda update -y --prefix /opt/conda conda && \
+RUN /opt/conda/bin/conda update -y --prefix /opt/conda anaconda && \
 /opt/conda/bin/conda update --all
 # Install Jupyter related packages
 RUN /opt/conda/bin/conda install -y jupyter numpy pandas matplotlib bokeh ipyparallel && \
