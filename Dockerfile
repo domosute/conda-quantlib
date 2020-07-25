@@ -18,9 +18,9 @@ RUN /opt/conda/bin/conda config --add channels conda-forge && \
 RUN /opt/conda/bin/conda update -y --prefix /opt/conda anaconda && \
 /opt/conda/bin/conda update --all
 # Install Jupyter related packages
-RUN /opt/conda/bin/conda install -y jupyter numpy pandas matplotlib bokeh ipyparallel && \
+RUN /opt/conda/bin/conda install -y -c conda-forge jupyter numpy pandas matplotlib bokeh ipyparallel && \
 # Install PostgreSQL driver
-/opt/conda/bin/conda install -y psycopg2 && \
+/opt/conda/bin/conda install -y -c conda-forge psycopg2 && \
 # Installing samba related packages
 /opt/conda/bin/conda install -y -c conda-forge pysmbclient && \
 # Installing numba related packages
