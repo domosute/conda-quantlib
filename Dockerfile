@@ -1,7 +1,5 @@
 FROM continuumio/anaconda3
-
 USER root
-
 RUN apt-get update && \
 # Install apt Packages:
 # Note: nodejs and npm is used for installing Jupyterlab spellchecker.
@@ -20,9 +18,9 @@ RUN /opt/conda/bin/conda update -y --prefix /opt/conda anaconda && \
 # Install Jupyter related packages
 RUN /opt/conda/bin/conda install -y -c conda-forge jupyter numpy pandas matplotlib bokeh 
 # Install PostgreSQL driver
-RUN /opt/conda/bin/conda install -y -c conda-forge psycopg2 && \
+RUN /opt/conda/bin/conda install -y -c conda-forge psycopg2
 # Installing samba related packages
-/opt/conda/bin/conda install -y -c conda-forge pysmbclient
+RUN /opt/conda/bin/conda install -y -c conda-forge pysmbclient
 # Installing numba related packages
 RUN /opt/conda/bin/conda install -y -c conda-forge numba
 # Installing boost related and SWIG
