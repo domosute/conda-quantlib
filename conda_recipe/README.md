@@ -28,7 +28,7 @@ root@xxxxxxxxxxxx:/opt/# export LD_LIBRARY_PATH=/opt/conda/lib
 4. Build Quantlib package first. (Change meta.yaml file accordingly.)
 ``
 root@xxxxxxxxxxxx:/opt# cd /opt/conda-quantlib/conda_recipe/quantlib
-root@xxxxxxxxxxxx:/quantlib# conda build .
+root@xxxxxxxxxxxx:/quantlib# conda-build .
 ```
 
 5. Once build process is finished, upload Quantlib package into Anaconda Cloud.
@@ -50,7 +50,7 @@ root@xxxxxxxxxxxx:/opt/# ldconfig
 8. Build Quantlib-SWIG
 ```
 root@xxxxxxxxxxxx:/opt# cd /opt/conda-quantlib/conda_recipe/quantlib-python
-root@xxxxxxxxxxxx:/opt# conda build .
+root@xxxxxxxxxxxx:/opt# conda-build .
 ```
 
 9. Once build process is finished, upload Quantlib-SWIG package into Anaconda Cloud.
