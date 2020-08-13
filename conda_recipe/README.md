@@ -21,7 +21,7 @@ root@xxxxxxxxxxxx:/opt# git clone https://github.com/domosute/conda-quantlib.git
 4. Build setup
 ```
 root@xxxxxxxxxxxx:/opt/# conda install -y -c conda-forge gcc_linux-64 gxx_linux-64 automake autoconf
-root@xxxxxxxxxxxx:/opt/# conda install -y -c conda-forge toolchain toolchain_c_linux-64 toolchain_cxx_linux-64 toolchain-fort_linux-64
+root@xxxxxxxxxxxx:/opt/# conda install -y -c conda-forge toolchain toolchain_c_linux-64 toolchain_cxx_linux-64 toolchain_fort_linux-64
 root@xxxxxxxxxxxx:/opt/# export PREFIX=/opt/conda
 root@xxxxxxxxxxxx:/opt/# export LD_LIBRARY_PATH=/opt/conda/lib
 
