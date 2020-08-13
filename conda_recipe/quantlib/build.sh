@@ -10,4 +10,4 @@ export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"
 ./autogen.sh
 ./configure --prefix=$PREFIX
 make -j ${MULTI_THREAD}
-sudo make install
+make install
