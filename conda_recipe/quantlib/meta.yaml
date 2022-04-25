@@ -1,9 +1,9 @@
 package:
   name: quantlib
-  version: 1.19
+  version: 1.26
   
 source:
-  url: https://github.com/lballabio/QuantLib/archive/QuantLib-v1.19.tar.gz
+  url: https://github.com/lballabio/QuantLib/archive/refs/tags/QuantLib-v1.26.tar.gz
   
 requirements:
   build:
