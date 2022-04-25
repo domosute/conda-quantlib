@@ -3,7 +3,7 @@ package:
   version: 1.26
   
 source:
-  url: https://github.com/lballabio/QuantLib/archive/refs/tags/QuantLib-v1.26.tar.gz
+  url: https://github.com/lballabio/QuantLib/releases/download/QuantLib-v1.26/QuantLib-1.26.tar.gz
   
 requirements:
   build:
