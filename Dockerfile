@@ -11,7 +11,7 @@ apt-get install -y pandoc poppler-utils
 # Prep for Conda installation
 # (4/4/2020: Solving environment: failed with initial frozen solve. Retrying with flexible solve. https://github.com/conda/conda/issues/9367)
 RUN /opt/conda/bin/conda config --add channels conda-forge && \
-/opt/conda/bin/conda config --set channel_priority false
+/opt/conda/bin/conda config --set channel_priority true
 # Update Conda and Package List
 RUN /opt/conda/bin/conda update -y --prefix /opt/conda anaconda && \
 /opt/conda/bin/conda update --all
