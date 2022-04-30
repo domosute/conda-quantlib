@@ -8,9 +8,9 @@ source:
 requirements:
   build:
     - autoconf
-    - swig >=4.0.2
-    - python >=3.10
-    - numpy >=1.21.5
+    - swig 
+    - python
+    - numpy
   run:
     - python
 
