@@ -11,12 +11,13 @@ apt-get install -y pandoc poppler-utils
 # Prep for Conda installation
 # (4/4/2020: Solving environment: failed with initial frozen solve. Retrying with flexible solve. https://github.com/conda/conda/issues/9367)
 RUN /opt/conda/bin/conda config --add channels conda-forge && \
-/opt/conda/bin/conda config --set channel_priority strict
+# /opt/conda/bin/conda config --set channel_priority strict
+/opt/conda/bin/conda config --set channel_priority flexible
 # Update Conda and Package List
 # RUN /opt/conda/bin/conda update -y --prefix /opt/conda anaconda && \
-# /opt/conda/bin/conda update --all
+RUN /opt/conda/bin/conda update --all
 # Install Jupyter related packages
-RUN /opt/conda/bin/conda install -y -c conda-forge jupyter numpy pandas matplotlib bokeh 
+# RUN /opt/conda/bin/conda install -y -c conda-forge jupyter numpy pandas matplotlib bokeh 
 # Install PostgreSQL driver
 RUN /opt/conda/bin/conda install -y -c conda-forge psycopg2
 # Installing samba related packages
