@@ -28,6 +28,8 @@ RUN /opt/conda/bin/conda install -y -c conda-forge numba
 RUN /opt/conda/bin/conda install -y -c conda-forge boost libboost swig
 # Install QuantLib related packages
 RUN /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
+# Install Feather Format
+RUN /opt/conda/bin/conda install -y -c conda-forge feather-format
 # Install Compilers and set env variables for Quantlib related package build
 RUN /opt/conda/bin/conda install -y -c conda-forge gcc_linux-64 gxx_linux-64 automake autoconf
 # Setup for Jupyter Notebook
@@ -49,7 +51,7 @@ echo "c.NotebookApp.token = 'jupyter'" > /home/jupyter/jupyter_notebook_config.p
 # Add shell script to start postfix and jupyter
 COPY entrypoint.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/entrypoint.sh
-EXPOSE 9999 9000 443
+EXPOSE 9999 9000 443 5006
 USER jupyter
 WORKDIR /home/jupyter/
 
