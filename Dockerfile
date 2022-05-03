@@ -28,8 +28,6 @@ RUN /opt/conda/bin/conda install -y -c conda-forge numba
 RUN /opt/conda/bin/conda install -y -c conda-forge boost libboost swig
 # Install QuantLib related packages
 RUN /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
-# Install Feather Format
-RUN /opt/conda/bin/conda install -y -c conda-forge feather-format
 # Install Compilers and set env variables for Quantlib related package build
 RUN /opt/conda/bin/conda install -y -c conda-forge gcc_linux-64 gxx_linux-64 automake autoconf
 # Setup for Jupyter Notebook
