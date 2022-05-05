@@ -28,8 +28,10 @@ RUN /opt/conda/bin/conda install -y -c conda-forge numba
 RUN /opt/conda/bin/conda install -y -c conda-forge boost libboost swig
 # Install QuantLib related packages
 RUN /opt/conda/bin/conda install -y -c domosute quantlib quantlib-python
+# Install Holoviews
+RUN /opt/conda/bin/conda install -y -c conda-forge holoviews
 # Install Compilers and set env variables for Quantlib related package build
-RUN /opt/conda/bin/conda install -y -c conda-forge gcc_linux-64 gxx_linux-64 automake autoconf
+RUN /opt/conda/bin/conda install -y -c conda-forge gcc_linux-64 gxx_linux-64 automake autoconf toolchain toolchain_c_linux-64 toolchain_cxx_linux-64 toolchain_fort_linux-64
 # Setup for Jupyter Notebook
 RUN echo "export PATH=/opt/conda/bin:$PATH" > /etc/profile.d/conda.sh && \
 cp /etc/profile.d/conda.sh /root/.bashrc && \
