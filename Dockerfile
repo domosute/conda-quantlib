@@ -56,7 +56,7 @@ echo "c.NotebookApp.token = 'jupyter'" > /home/jupyter/jupyter_notebook_config.p
 # Add shell script to start postfix and jupyter
 COPY entrypoint.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/entrypoint.sh
-EXPOSE 9999 9000 443 5006 8000 8001
+EXPOSE 9999 9000 443 5006
 USER jupyter
 WORKDIR /home/jupyter/
 
