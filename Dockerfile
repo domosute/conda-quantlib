@@ -1,23 +1,28 @@
-FROM continuumio/anaconda3
+FROM continuumio/miniconda3
 USER root
 RUN apt-get update && \
 # Install apt Packages:
-# Note: nodejs and npm is used for installing Jupyterlab spellchecker.
-apt-get install -y sudo apt-utils nodejs npm && \
+apt-get install -y sudo apt-utils curl && \
 # Install Tex related package
 apt-get install -y texlive-xetex texlive-fonts-recommended texlive-latex-recommended && \
 # Install pandoc related packages
 apt-get install -y pandoc poppler-utils
+# Install nodejs
+# Note: nodejs and npm is used for installing Jupyterlab spellchecker.
+# Reference: https://github.com/nodesource/distributions
+# Installing 16.x LTS version
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - && \
+sudo apt-get install -y nodejs
 # Prep for Conda installation
 # (4/4/2020: Solving environment: failed with initial frozen solve. Retrying with flexible solve. https://github.com/conda/conda/issues/9367)
 RUN /opt/conda/bin/conda config --add channels conda-forge && \
 # /opt/conda/bin/conda config --set channel_priority strict
 /opt/conda/bin/conda config --set channel_priority flexible
 # Update Conda and Package List
-# RUN /opt/conda/bin/conda update -y --prefix /opt/conda anaconda && \
+# RUN /opt/conda/bin/conda update -y --prefix /opt/conda conda && \
 RUN /opt/conda/bin/conda update --all
 # Install Jupyter related packages
-# RUN /opt/conda/bin/conda install -y -c conda-forge jupyter numpy pandas matplotlib bokeh 
+RUN /opt/conda/bin/conda install -y -c conda-forge jupyter notebook jupyterlab numpy scipy pandas matplotlib bokeh 
 # Install PostgreSQL driver
 RUN /opt/conda/bin/conda install -y -c conda-forge psycopg2
 # Installing samba related packages
@@ -51,7 +56,7 @@ echo "c.NotebookApp.token = 'jupyter'" > /home/jupyter/jupyter_notebook_config.p
 # Add shell script to start postfix and jupyter
 COPY entrypoint.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/entrypoint.sh
-EXPOSE 9999 9000 443 5006
+EXPOSE 9999 9000 443 5006 8000 8001
 USER jupyter
 WORKDIR /home/jupyter/
 
